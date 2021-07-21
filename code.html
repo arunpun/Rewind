@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Arun Pun</title>
+    <title>Rewind: A Coding Project By Arun Pun</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,7 @@
     <!--Nav section-->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">APP NAME</a>
+            <a class="navbar-brand" href="">Rewind</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,10 +37,10 @@
                         <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/arunpun/Rewind">Git Repo</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">About</a>
+                        <a class="nav-link" target="_blank" href="https://arunpun-portfolio.netlify.app/">About</a>
                     </li>
                 </ul>
             </div>
@@ -50,14 +50,39 @@
     <!--Main section-->
     <main class="flex-shrink-0">
         <div class="container py-5 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Rewind</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                    //Call Hello World
-                    function helloWorld(){
-                        alert("Hello World!");
-                    }
+                        //Get the string from the page, controller function
+function getString(){
+    document.getElementById("alert").classList.add("invisible");
+
+    let userString = document.getElementById("userString").value;
+    let reversedString = reverseString(userString);
+
+    displayString(reversedString);
+}
+
+//Reverse the string, logic function
+function reverseString(userString){
+    let revString = [];
+
+    //Reverse the string with a decrement for loop
+    for (let i = userString.length - 1; i >= 0; i--){
+        revString += userString[i]; //Not the array.push() method
+    }
+    return revString;
+}
+
+//Display the reversed string and message to the user, view function
+function displayString(reversedString){
+    //Write message to the page
+    document.getElementById("message").innerHTML = `The reversed string is: ${reversedString}`;
+
+    //Show the alert box
+    document.getElementById("alert").classList.remove("invisible");
+}
                 </code></pre>
                 </div>
                 <div class="col-lg-4">
