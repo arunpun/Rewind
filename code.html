@@ -18,9 +18,9 @@
     <link rel="icon" type="image/png" href="/img/profile.png" </head> <body class="d-flex flex-column h-100">
 
     <!--Nav section-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top colorTheme">
         <div class="container-fluid">
-            <a class="navbar-brand" href="">Rewind</a>
+            <a class="navbar-brand" href="">REWIND</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -86,20 +86,68 @@ function displayString(reversedString){
                 </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World!".</p>
+                    <p>The code is structured in three functions, <strong>getString()</strong>,
+                        <strong>reverseString()</strong> & <strong>displayString()</strong></p>
+                    <hr>
+                    <h5>getString()</h5>
+                    <p>This function is triggered by an event listener
+                        <strong>document.getElementById("btnSubmit").addEventListener("click", getValues</strong>
+                        when the <strong>'Reverse'</strong> button is clicked in the app page. The function first adds
+                        the
+                        class
+                        <strong>'invisible'</strong> to a div with the id <strong>'alert'</strong>. This makes sure that
+                        this div is initially hidden from the user. This is achieved through the method <strong>
+                            document.getElementById("alert").classList.add("invisible");
+                        </strong> The function then creates two variables, <strong>userString</strong> whose value is
+                        passed from the <strong>document.getElementById("userString").value</strong> method and a
+                        <strong>reversedString</strong> variable whose value will be calculated through the
+                        <strong>reverseString()</strong> method. This variable is then used as an argument to display
+                        the final output to the user with the <strong>displayString()</strong> method.
+                    </p>
+                    <hr>
+                    <h5>reverseString()</h5>
+                    <p>This function takes a parameter, <strong>userString</strong>. The function initializes an empty
+                        array
+                        called <strong>revString</strong> which will hold the reversed string. Using a decrement for
+                        loop,
+                        we start to loop through the user's string. The starting point for the counter is set as
+                        <strong>userString.length - 1</strong>, this starts the loop from the last character of the
+                        user's string. The need to subtract <strong>1</strong> from the length of the users's string is
+                        because indexes start from <strong>0</strong>. The loop runs until the counter is at the start
+                        index,
+                        <strong>0</strong>, i.e. <strong>i >= 0</strong>, decrementing the value of <strong>i</strong>
+                        by <strong>1</strong> on each loop through <strong>i--</strong> On each loop, the function
+                        <strong>adds (+=)</strong> each of the character of the user's string in the reverse order.
+                        Here it is important that we do not <strong>push</strong> the characters as the array will store
+                        the characters individually with their own indexes. Finally the function returns the reversed
+                        string as an array.
+                    </p>
+                    <hr>
+                    <h5>displayString()</h5>
+                    <p>The parameter for this function is defined as <strong>reversedString</strong>. If we go back to
+                        the
+                        <strong>getString()</strong> method, we are passing the now reversed string (output of the
+                        <strong>reverseString()</strong>
+                        function) as an argument to this function. Finally, through DOM manipulation, the result is
+                        passed to the
+                        paragraph element which has an id of <strong>"message"</strong>. This is achieved through the
+                        <strong>
+                            document.getElementById("message").innerHTML = `The reversed string is:
+                            ${reversedString}`;</strong> method.
+                        This function also removes the <strong>"invisible"</strong> class from the div with the id of
+                        <strong>alert</strong> which makes reversed string visible to the user.
+                    </p>
                 </div>
             </div>
         </div>
     </main>
-
     <!--Footer section-->
-    <footer class="footer mt-auto py-3">
+    <footer class="footer mt-auto py-3 colorTheme">
         <div class="container-fluid">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col text-light order-last order-lg-first">
-                    <div><span class="text-muted">&copy;2021</span> Arun Pun | punarun@hotmail.com</div>
+                    <div><span class="text-muted">&copy;2021</span> Arun Pun |
+                        punarun@hotmail.com</div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
                     <img src="./img/arunpun-white.svg" alt="Arun Pun Logo" height="24">
@@ -107,11 +155,14 @@ function displayString(reversedString){
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">
                         <div class="col social"><a href="https://www.linkedin.com/in/arun-pun/" target="_blank"><i
-                                    class="fab fa-linkedin fa-2x"></i></a></div>
+                                    class="fab fa-linkedin fa-2x"></i></a>
+                        </div>
                         <div class="col social"><a href="https://github.com/arunpun" target="_blank"><i
-                                    class="fab fa-github fa-2x"></i></a></div>
+                                    class="fab fa-github fa-2x"></i></a>
+                        </div>
                         <div class="col social"><a href="https://www.instagram.com/justarunsthing/" target="_blank"><i
-                                    class="fab fa-instagram fa-2x"></i></a></div>
+                                    class="fab fa-instagram fa-2x"></i></a>
+                        </div>
 
                     </div>
                 </div>
